@@ -7,13 +7,21 @@ then
 else
   for f in "$@"; do
 
+    # if [[ $f=="q" ]]; then
+    #   subl "$f" & disown
+    #   echo "$!: Opening ${f} with subl"
+    # fi
+    # echo $f
     extension=$(echo $f | awk '{ gsub(/ /,"_",$0); gsub(/\./," ",$0); printf("%s",$NF)}')
 
     case $extension in
       nb )
-         Mathematica ${f} 2>/dev/null & disown
-         echo "$!: Opening ${f} with Mathematica";;
-      ps | pdf | djvu | cbr )
+        Mathematica ${f} 2>/dev/null & disown
+        echo "$!: Opening ${f} with Mathematica";;
+      lhe ) 
+        echo "Opening ${f} with less"
+        less "$f";;
+      ps | pdf | djvu | cbr | eps )
         if [[ ! (-f "$f") ]]; then
           echo "${f} not found and cannot create"
         else
