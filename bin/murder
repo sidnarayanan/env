@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ps U ${USER} | grep ${1} | grep -v murder | grep -v "grep" | grep --color=AUTO ${1}
+echo "Going to kill, you have 2 sec to abort"
+
+sleep 2
+
+for f in $(ps U ${USER} | grep ${1} | grep -v murder | grep -v "grep" | grep -o "^[ ]*[0-9]*"); do echo "killing ${f}" ; kill -9 $f; done

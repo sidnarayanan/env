@@ -1,0 +1,35 @@
+# .bash_t3
+
+
+# CMSSW setup
+export SCRAM_ARCH=slc6_amd64_gcc530
+export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+source $VO_CMS_SW_DIR/cmsset_default.sh
+
+export AFS="/afs/cern.ch/user/s/snarayan/public/"
+
+if [[ $HOSTNAME == "t3desk001.mit.edu" ]]; then 
+    export PATH="/local/snarayan/bin:${PATH}"
+fi
+
+alias killdropbox='dropbox stop ; dropbox start'
+alias condor_me="condor_q ${USER}"
+
+alias panda24='cd ~/cms/cmssw/analysis/CMSSW_8_0_24_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
+alias panda='cd ~/cms/cmssw/analysis/CMSSW_8_0_26_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
+alias setupfit='cd $HOME/scratch5/CMSSW_7_4_7/src/MonoXFit_CSV/; cmsenv'
+alias setupvbffit='cd $HOME/local/CMSSW_7_4_7/src/; export SCRAM_ARCH=slc6_amd64_gcc491; cmsenv'
+alias scramjet='cd $HOME/cms/cmssw/analysis/CMSSW_8_0_11/src/SCRAMJet; cmsenv; source TopTagging/setup.sh'
+alias scramb='scram b -j$(nproc)'
+
+function paddupstream {
+	git remote add upstream git@github.com:PandaPhysics/${1}.git
+}
+
+alias cmsenv='eval `scramv1 runtime -sh`'
+alias voms='voms-proxy-init -voms cms'
+
+export LOGS=/home/snarayan/cms/logs/
+export HIST=/home/snarayan/cms/hist/
+export CONDOR=/home/snarayan/cms/condor/
+export ROOT=/home/snarayan/cms/root/

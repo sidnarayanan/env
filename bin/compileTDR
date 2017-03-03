@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DRAFTFLAG="--draft"
+
+while [ $# -gt 1 ]; do
+    case $1 in
+        -f)
+            DRAFTFLAG="--arxiv"
+            shift
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
+TDR=/home/snarayan/home000/tdr2/
+# TDR=$(cd $(dirname $0); pwd)
+
+if [[ "$1" =~ ^notes/ ]]; then
+    cd $TDR/notes
+    if [[ "$1" =~ ^notes/AN ]]; then
+        ./tdr $DRAFTFLAG --style=an b $(basename $1)
+    else
+        ./tdr $DRAFTFLAG --style=pas b $(basename $1)
+    fi
+elif [[ "$1" =~ ^papers/ ]]; then
+    cd $TDR/papers
+    ./tdr $DRAFTFLAG --style=paper b $(basename $1)
+fi
