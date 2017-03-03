@@ -1,0 +1,54 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+  echo 'Provide target(s) please'
+  exit
+else
+  for f in "$@"; do
+
+    extension=$(echo $f | awk '{ gsub(/ /,"_",$0); gsub(/\./," ",$0); printf("%s",$NF)}')
+
+    case $extension in
+      nb )
+         Mathematica ${f} 2>/dev/null & disown
+         echo "$!: Opening ${f} with Mathematica";;
+      ps | pdf | djvu | cbr )
+        if [[ ! (-f "$f") ]]; then
+          echo "${f} not found and cannot create"
+        else
+          evince 2>/dev/null "$f" & disown
+          echo "$!: Opening ${f} with evince"
+        fi;;
+      tex | txt | [cC] | [hH] | cpp | sh | awk | py | hh | xml | XML | json | JSON | log | dat | cc | bib )
+        subl "$f" 2>/dev/null & disown
+        echo "$!: Opening ${f} with subl";;
+      html )
+        if [[ ! (-f $f) ]]; then
+          echo "${f} not found and cannot create"
+        else
+          google-chrome "$f" & disown
+          echo "$!: Opening ${f} with google-chrome"
+        fi;;
+      jpg | JPG | gif | GIF | png | PNG )
+        if [[ ! (-f "$f") ]]; then
+          echo "${f} not found and cannot create"
+        else
+          viewnior "$f" & disown
+          echo "$!: Opening ${f} with viewnior"
+        fi;;
+      mp3 | avi | mkv | mp4 )
+        if [[ ! (-f $f) ]]; then
+          echo "${f} not found and cannot create"
+        else
+          vlc "$f" 2>/dev/null > /dev/null& disown
+          echo "$!: Opening ${f} with vlc"
+        fi;;
+      ppt | doc | xls | pptx | docx | xlsx | odt | odf | csv )
+        libreoffice "$f" & disown
+        echo "$!: Opening ${f} with libre-office";;
+      * )
+        echo "Don't know what to do with ${f}";;
+    esac
+  done
+fi
