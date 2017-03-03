@@ -232,11 +232,11 @@ launch_editor () {
   core_editor=$(read_config core.editor)
   if [ ! -z "$core_editor" ]; then
     $core_editor "$1"
-  elif [ ! -z "$EDITOR" ]; then
-    $EDITOR "$1"
+  elif [ ! -z "$XEDITOR" ]; then
+    $XEDITOR "$1"
   else
     echo "error: no editor specified, please set the 'core.editor' setting or" \
-         "EDITOR environment variable"
+         "XEDITOR environment variable"
   fi
 }
 

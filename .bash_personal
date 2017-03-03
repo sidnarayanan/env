@@ -1,0 +1,4 @@
+#.bash_personal
+
+export PROMPTCOLOR=36
+source ~/root/bin/thisroot.sh

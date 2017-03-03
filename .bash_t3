@@ -1,5 +1,6 @@
 # .bash_t3
 
+export PROMPTCOLOR=31
 
 # CMSSW setup
 export SCRAM_ARCH=slc6_amd64_gcc530
