@@ -1,6 +1,3 @@
-# only generates ROOT dictionaries! compilation is left to SCRAM
-PACKAGE=$(CMSSW_BASE)/src/PandaAnalysis/
-INC=-I/cvmfs/cms.cern.ch/$(SCRAM_ARCH)/external/fastjet-contrib/1.020/include/ -I/cvmfs/cms.cern.ch/$(SCRAM_ARCH)/external/fastjet/3.1.0/include/
 BASIC=.bashrc .short-prompt.sh $(wildcard bin/*) .vimrc .vim  .bash_aliases .gitconfig
 
 .PHONY: personal work clean
