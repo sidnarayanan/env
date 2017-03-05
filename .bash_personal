@@ -2,3 +2,4 @@
 
 export PROMPTCOLOR=36
 source ~/root/bin/thisroot.sh
+export XEDITOR=subl
