@@ -1,12 +1,14 @@
 BASIC=.bashrc .short-prompt.sh $(wildcard bin/*) .vimrc .vim  .bash_aliases .gitconfig
 
-.PHONY: personal work submit clean
+.PHONY: personal work submit clean restore
 
 personal: $(HOME)/.myenv_personal
 work: $(HOME)/.myenv_work
 submit: $(HOME)/.myenv_submit
 clean:
-	rm -f ~/.myenv_personal ~/.myenv_work
+	rm -f $(HOME)/.myenv_personal $(HOME)/.myenv_work $(HOME)/.myenv_submit $(HOME)/.myenv_bkup
+restore:
+	cp -r $(HOME)/.myenv_bkup/* $(HOME)/
 
 $(HOME)/.myenv_personal: $(BASIC) .bash_personal
 	mkdir -p $(HOME)/.myenv_bkup
