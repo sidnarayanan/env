@@ -1,0 +1,21 @@
+# .bash_t3
+
+export PROMPTCOLOR=34
+
+# CMSSW setup
+export SCRAM_ARCH=slc6_amd64_gcc530
+export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+source $VO_CMS_SW_DIR/cmsset_default.sh
+
+export AFS="/afs/cern.ch/user/s/snarayan/public/"
+alias condor_me="condor_q ${USER}"
+
+alias scramb='scram b -j$(nproc)'
+
+function paddupstream {
+	git remote add upstream git@github.com:PandaPhysics/${1}.git
+}
+
+alias cmsenv='eval `scramv1 runtime -sh`'
+alias voms='voms-proxy-init -voms cms'
+
