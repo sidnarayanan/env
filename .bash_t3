@@ -1,5 +1,14 @@
 # .bash_t3
 
+if [ "$HOSTNAME" = "t3desk001.mit.edu" ]; then
+    export PROMPTCOLOR=35
+elif [ "$HOSTNAME" = "t3desk006.mit.edu" ]; then
+    export PROMPTCOLOR=105
+elif [ "$HOSTNAME" = "t3desk011.mit.edu" ]; then
+    export PROMPTCOLOR=105
+else
+    export PROMPTCOLOR=31
+fi
 
 # CMSSW setup
 export SCRAM_ARCH=slc6_amd64_gcc530

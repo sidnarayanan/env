@@ -12,6 +12,12 @@ fi
 if [ -f ~/.bash_t3 ]; then
         . ~/.bash_t3
 fi
+if [ -f ~/.bash_personal ]; then
+        . ~/.bash_personal
+fi
+if [ -f ~/.bash_submit ]; then
+        . ~/.bash_submit
+fi
 
 # User specific aliases and functions
 export PATH="$HOME/bin:${PATH}"
@@ -32,15 +38,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 color_prompt=yes
-if [ "$HOSTNAME" = "t3desk001.mit.edu" ]; then
-    PROMPTCOLOR=35
-elif [ "$HOSTNAME" = "t3desk006.mit.edu" ]; then
-    PROMPTCOLOR=105
-elif [ "$HOSTNAME" = "t3desk011.mit.edu" ]; then
-    PROMPTCOLOR=105
-else
-    PROMPTCOLOR=31
-fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}[\[\033[00;${PROMPTCOLOR}m\]\u@\h\[\033[10m\] \[\033[00;${PROMPTCOLOR}m\]$(shorten_path \w 20)\[\033[00m\]]\$ '
 else
