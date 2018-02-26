@@ -25,11 +25,17 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias t3btch='ssh snarayan@t3btch101.mit.edu'
 alias t3desk='ssh snarayan@t3desk001.mit.edu'
 alias t3home='ssh snarayan@t3home000.mit.edu'
+alias t3serv012='ssh snarayan@t3serv012.mit.edu'
 alias xt3home='xeno ssh snarayan@t3home000.mit.edu'
 alias xt3desk='xeno ssh snarayan@t3desk001.mit.edu'
-alias submit='ssh sidn@submit.mit.edu'
+alias sub='ssh snarayan@submit.mit.edu'
 alias t3sub='ssh snarayan@t3btch100.mit.edu'
 alias t3serv='ssh snarayan@t3serv012.mit.edu'
 alias lxplus='ssh snarayan@lxplus.cern.ch'
 alias lxplusY='ssh -Y snarayan@lxplus.cern.ch'
 alias up='sudo apt-get update; sudo apt-fast upgrade'
+
+function rl {
+  export f=$(readlink -f $1);
+  echo $f;
+}  

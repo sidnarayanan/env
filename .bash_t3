@@ -1,6 +1,5 @@
 # .bash_t3
 
-export PROMPTCOLOR=31
 
 # CMSSW setup
 export SCRAM_ARCH=slc6_amd64_gcc530
@@ -18,19 +17,37 @@ alias condor_me="condor_q ${USER}"
 
 alias panda24='cd ~/cms/cmssw/analysis/CMSSW_8_0_24_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
 alias panda='cd ~/cms/cmssw/analysis/CMSSW_8_0_26_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
+alias panda003='cd /home/snarayan/cms/cmssw/analysis/003/CMSSW_8_0_26_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
+alias panda004='cd /home/snarayan/home000/004/CMSSW_8_0_26_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
+alias panda005='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_8_0_26_patch1/src/PandaAnalysis/; cmsenv; source T3/setup.sh'
 alias setupfit='cd $HOME/scratch5/CMSSW_7_4_7/src/MonoXFit_CSV/; cmsenv'
 alias setupvbffit='cd $HOME/local/CMSSW_7_4_7/src/; export SCRAM_ARCH=slc6_amd64_gcc491; cmsenv'
 alias scramjet='cd $HOME/cms/cmssw/analysis/CMSSW_8_0_11/src/SCRAMJet; cmsenv; source TopTagging/setup.sh'
 alias scramb='scram b -j$(nproc)'
+alias mypy='/usr/local/bin/python2.7'
+alias vbf='cd /home/snarayan/merge/CMSSW_8_0_26_patch1/src/PandaAnalysis/ ; cmsenv ; source T3/vbf.sh'
+alias hbb='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_9_3_0/src/PandaAnalysis/ ; cmsenv ; source T3/setup.sh'
+alias gen='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_9_3_0/src/PandaAnalysis/ ; cmsenv ; source T3/gen_rotxy.sh'
 
 function paddupstream {
 	git remote add upstream git@github.com:PandaPhysics/${1}.git
 }
 
 alias cmsenv='eval `scramv1 runtime -sh`'
-alias voms='voms-proxy-init -voms cms'
+alias voms='voms-proxy-init -voms cms --valid 168:00'
 
 export LOGS=/home/snarayan/cms/logs/
 export HIST=/home/snarayan/cms/hist/
 export CONDOR=/home/snarayan/cms/condor/
 export ROOT=/home/snarayan/cms/root/
+
+alias subtle='cd ~/home000/SubtLeNet/; export KERAS_BACKEND=tensorflow; source ./setup.sh'
+#alias badnet='cd ~/home000/CMSSW_9_2_0/; cmsenv; export PYTHONPATH=""; cd ~/home000/BAdNet/; export KERAS_BACKEND=tensorflow; source ./setup.sh'
+
+function k2c {
+	echo "/$(echo $1 | sed -e 's?\+?/?g')"
+}
+
+function s {
+	ssh $1 -t "cd $PWD; bash -l"
+}
