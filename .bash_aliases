@@ -39,3 +39,7 @@ function rl {
   export f=$(readlink -f $1);
   echo $f;
 }  
+
+function calc {
+  echo "scale = 10; $@" | bc
+}
