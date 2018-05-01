@@ -36,7 +36,8 @@ alias scramb='scram b -j$(nproc)'
 alias mypy='/usr/local/bin/python2.7'
 alias vbf='cd /home/snarayan/merge/CMSSW_8_0_26_patch1/src/PandaAnalysis/ ; cmsenv ; source T3/vbf.sh'
 alias hbb='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_9_3_0/src/PandaAnalysis/ ; cmsenv ; source T3/setup.sh'
-alias gen='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_9_3_0/src/PandaAnalysis/ ; cmsenv ; source T3/gen_rotxy.sh'
+alias gen='cd /home/snarayan/cms/cmssw/analysis/005/CMSSW_9_3_0/src/PandaAnalysis/ ; cmsenv ; source T3/gen.sh'
+alias 010='cd $HOME/cms/cmssw/analysis/010/CMSSW_9_4_4/src/PandaAnalysis/ ; cmsenv'
 
 function paddupstream {
 	git remote add upstream git@github.com:PandaPhysics/${1}.git

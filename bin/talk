@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CACHE=${HOME}/.talkfile
+
+if [[ "$1" == "clean" ]] ; then
+    echo -n "" > ${CACHE}
+elif [[ "$1" == "listen" ]] ; then
+    tail -f $CACHE
+else
+    echo $@ >> $CACHE
+fi
+

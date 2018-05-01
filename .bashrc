@@ -25,7 +25,7 @@ export PATH="$HOME/bin:${PATH}"
 [ -z "$PS1" ] && return
 
 HISTSIZE=500000
-HISTFILESIZE=20000
+HISTFILESIZE=200000
 HISTCONTROL=ignoredups
 shopt -s histappend
 
