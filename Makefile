@@ -6,7 +6,7 @@ personal: $(HOME)/.myenv_personal
 work: $(HOME)/.myenv_work
 submit: $(HOME)/.myenv_submit
 clean:
-	rm -f $(HOME)/.myenv_personal $(HOME)/.myenv_work $(HOME)/.myenv_submit $(HOME)/.myenv_bkup
+	rm -f $(HOME)/.myenv_personal $(HOME)/.myenv_work $(HOME)/.myenv_submit 
 restore:
 	cp -rv $(HOME)/.myenv_bkup/* $(HOME)/
 

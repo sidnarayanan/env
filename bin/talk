@@ -1,12 +1,12 @@
 #!/bin/bash
 
-CACHE=${HOME}/.talkfile
+CACHE=/home/snarayan/.talkfile # location of file on t3desk001
 
 if [[ "$1" == "clean" ]] ; then
-    echo -n "" > ${CACHE}
+    ssh snarayan@t3desk001.mit.edu "echo -n "" > ${CACHE}"
 elif [[ "$1" == "listen" ]] ; then
-    tail -f $CACHE
+    ssh snarayan@t3desk001.mit.edu  "tail -f $CACHE"
 else
-    echo $@ >> $CACHE
+    ssh snarayan@t3desk001.mit.edu  "echo $@ >> $CACHE"
 fi
 
