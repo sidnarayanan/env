@@ -2,11 +2,19 @@
 
 CACHE=/home/snarayan/.talkfile # location of file on t3desk001
 
+function DO {
+    if [[ "$HOSTNAME" == t3* ]]; then 
+        bash -c "$@"
+    else
+        ssh snarayan@t3desk001.mit.edu "$@"
+    fi
+}
+
 if [[ "$1" == "clean" ]] ; then
-    ssh snarayan@t3desk001.mit.edu "echo -n "" > ${CACHE}"
+    DO "echo -n "" > ${CACHE}"
 elif [[ "$1" == "listen" ]] ; then
-    ssh snarayan@t3desk001.mit.edu  "tail -f $CACHE"
+    DO  "tail -f $CACHE"
 else
-    ssh snarayan@t3desk001.mit.edu  "echo $@ >> $CACHE"
+    DO  "echo $@ >> $CACHE"
 fi
 
