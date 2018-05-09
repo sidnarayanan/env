@@ -8,6 +8,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
 alias grpe='grep'
 alias hgrep='history | grep'
 alias psgrep='ps U ${USER} | grep'
@@ -22,19 +23,25 @@ alias l='ls -CF'
 alias goddammit='sudo'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+
 alias t3btch='ssh snarayan@t3btch101.mit.edu'
 alias t3desk='ssh snarayan@t3desk001.mit.edu'
 alias t3home='ssh snarayan@t3home000.mit.edu'
-alias t3serv012='ssh snarayan@t3serv012.mit.edu'
+alias t3desk11='ssh snarayan@t3desk011.mit.edu'
+alias t3desk6='ssh snarayan@t3desk006.mit.edu'
+
 alias xt3home='xeno ssh snarayan@t3home000.mit.edu'
 alias xt3desk='xeno ssh snarayan@t3desk001.mit.edu'
-alias t3desk6='ssh snarayan@t3desk006.mit.edu'
 alias xt3desk6='xeno ssh snarayan@t3desk006.mit.edu'
-alias t3desk11='ssh snarayan@t3desk011.mit.edu'
 alias xt3desk11='xeno ssh snarayan@t3desk011.mit.edu'
+
+alias rrh='ssh -R 52698:localhost:52698'
+alias rt3home='rrh snarayan@t3home000.mit.edu'
+alias rt3desk='rrh snarayan@t3desk001.mit.edu'
+alias rt3desk6='rrh snarayan@t3desk006.mit.edu'
+alias rt3desk11='rrh snarayan@t3desk011.mit.edu'
+
 alias sub='ssh snarayan@submit.mit.edu'
-alias t3sub='ssh snarayan@t3btch100.mit.edu'
-alias t3serv='ssh snarayan@t3serv012.mit.edu'
 alias lxplus='ssh snarayan@lxplus.cern.ch'
 alias lxplusY='ssh -Y snarayan@lxplus.cern.ch'
 alias ll='ls -alF'
@@ -45,7 +52,7 @@ alias sshx='ssh -Y'
 function rl {
   export f=$(readlink -f $1);
   echo $f;
-}  
+}
 
 function calc {
   echo "scale = 10; $@" | bc
