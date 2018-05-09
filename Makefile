@@ -1,4 +1,4 @@
-BASIC=.bashrc .short-prompt.sh $(wildcard bin/*) .vimrc .vim  .bash_aliases .gitconfig
+BASIC=.bashrc .short-prompt.sh $(wildcard bin/*) .vimrc .vim  .bash_aliases .gitconfig .inputrc
 
 .PHONY: personal work submit clean restore
 
