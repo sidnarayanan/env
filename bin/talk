@@ -10,8 +10,14 @@ function DO {
     fi
 }
 
-if [[ "$1" == "clean" ]] ; then
-    DO "echo -n "" > ${CACHE}"
+if [[ "$1" == "edit" ]] ; then
+    if [[ "$HOSTNAME" == t3* ]]; then 
+        vim ${CACHE}
+    else
+        ssh snarayan@t3desk001.mit.edu -t "vim ${CACHE}; exit"
+    fi
+elif [[ "$1" == "clean" ]] ; then
+    DO "echo -n  > ${CACHE}"
 elif [[ "$1" == "listen" ]] ; then
     DO  "tail -f $CACHE"
 else
