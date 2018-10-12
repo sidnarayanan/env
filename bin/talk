@@ -20,6 +20,14 @@ elif [[ "$1" == "clean" ]] ; then
     DO "echo -n  > ${CACHE}"
 elif [[ "$1" == "listen" ]] ; then
     DO  "tail -f $CACHE"
+elif [[ "$1" == "hear" ]]; then 
+    if [[ "$2" == "" ]]; then 
+        DO "tail -n1 $CACHE"
+        export HEARD=$(DO "tail -n1 $CACHE")
+    else
+        DO "tail -n$2 $CACHE"
+        export HEARD=$(DO "tail -n2 $CACHE")
+    fi
 else
     DO  "echo $@ >> $CACHE"
 fi
