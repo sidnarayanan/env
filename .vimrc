@@ -22,5 +22,5 @@ if has("syntax")
   nnoremap <F2> :set invpaste paste?<CR>
   set pastetoggle=<F2>
   set showmode
-  vnoremap // y/<C-R>"<CR>
+  vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
