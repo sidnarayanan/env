@@ -12,6 +12,9 @@ fi
 if [ -f ~/.bash_t3 ]; then
         . ~/.bash_t3
 fi
+if [ -f ~/.bash_work ]; then
+        . ~/.bash_work
+fi
 if [ -f ~/.bash_personal ]; then
         . ~/.bash_personal
 fi

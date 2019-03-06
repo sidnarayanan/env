@@ -1,0 +1,29 @@
+# .bash_work
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+export PROMPTCOLOR=31
+
+# proxy stuff
+export http_proxy=http.proxy.fmr.com:8000
+export HTTPS_PROXY=$http_proxy
+export https_proxy=$http_proxy
+export HTTP_PROXY=$http_proxy
+export ALL_PROXY=$http_proxy # (required by cURL)
+
+alias npcurl='curl --noproxy "*"'
+
+# oracle access to CWE
+#export ORACLE_HOME=/Applications/oracle/product/instantclient_64/18.1.0.0.0
+export ORACLE_HOME=/Applications/oracle/product/instantclient_64/12.2.0.1.0-2
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export PATH=${PATH}:${ORACLE_HOME}/sqlplus/bin/
+alias mysql='http_proxy="" https_proxy="" sqlplus a642577@CWEP1_CORPID'
+
+# add anaconda
+export PATH=${PATH}:/Users/a642577/anaconda3/bin/
