@@ -27,3 +27,26 @@ alias mysql='http_proxy="" https_proxy="" sqlplus a642577@CWEP1_CORPID'
 
 # add anaconda
 export PATH=${PATH}:/Users/a642577/anaconda3/bin/
+
+# hadoop
+export EDGE_NODE_PRD="dojo3e10001"
+export EDGE_NODE_PRD_DS="dojo3e10004"
+if [[ ( "`hostname`" = "$EDGE_NODE_PRD_DS" )  || ( "`hostname`" = "$EDGE_NODE_PRD" ) ]]
+then
+   alias beeline='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
+   export beeline_cmd='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
+   alias impala='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
+   export impala_cmd='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
+   export DATA="/apps/staging/restricted/aadsnonpii/$USER"
+fi
+alias submitjob='spark-submit --master yarn-rm --num-executors=100 --conf "spark.kryoserializer.buffer.max = 128M" --executor-memory 8g --executor-cores 5 --driver-memory 8g'
+
+# KnoGr machine
+export KNOGR="vc2crtp1380465n.fmr.com"
+
+function grl {
+  export f=$(greadlink -f $1);
+  echo $f;
+}
+
+export PYSPARK_PYTHON="/opt/anaconda/latest/bin/python"
