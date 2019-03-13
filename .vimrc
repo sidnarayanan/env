@@ -13,8 +13,8 @@ if has("syntax")
   command W w
   command WQ wq
 
-  autocmd BufReadPost * :DetectIndent 
-  let g:detectindent_preferred_expandtab = 1 
+  "autocmd BufReadPost * :DetectIndent 
+  let g:detectindent_preferred_expandtab = 4 
   let g:detectindent_preferred_indent = 4 
 
   filetype indent plugin on
@@ -23,4 +23,4 @@ if has("syntax")
   set pastetoggle=<F2>
   set showmode
   vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
-
+  hi Search cterm=None ctermfg=black ctermbg=yellow
