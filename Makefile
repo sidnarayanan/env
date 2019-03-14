@@ -26,7 +26,7 @@ $(HOME)/.myenv_t3: $(BASIC) .bash_t3
 $(HOME)/.myenv_work: $(BASIC) .bash_work
 	mkdir -p $(HOME)/.myenv_bkup
 	mkdir -p $(HOME)/bin/
-	for f in $?; do echo $$f; cp -rv $(HOME)/$$f $(HOME)/.myenv_bkup/; cp -rvp $$f $(HOME)/$$f; done
+	for f in $?; do echo $$f; cp -rv $(HOME)/$$f $(HOME)/.myenv_bkup/; cp -rv $$f $(HOME)/$$f; done
 	date >> $(HOME)/.myenv_work
 
 $(HOME)/.myenv_submit: $(BASIC) .bash_submit

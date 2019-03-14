@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+set -o vi
+
 # User definitions 
 if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
@@ -52,4 +54,3 @@ unset color_prompt force_color_prompt
 unset SSH_ASKPASS
 export EDITOR='vim'
 
-set -o vi
