@@ -33,11 +33,17 @@ export HADOOP_PRD="dojo3e10001"
 export HADOOP="dojo3e10004"
 if [[ ( "`hostname`" = "$HADOOP" )  || ( "`hostname`" = "$HADOOP_PRD" ) ]]
 then
-   alias beeline='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
-   export beeline_cmd='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
-   alias impala='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
-   export impala_cmd='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
-   export DATA="/apps/staging/restricted/aadsnonpii/$USER"
+    alias beeline='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
+    export beeline_cmd='beeline -u "jdbc:hive2://hive-kerb-prd1.rtp1.hadoop.fmr.com:10001/default;principal=hive/hive-kerb-prd1.rtp1.hadoop.fmr.com@RTP1.HADOOP.FMR.COM;saslQop=auth-conf"'
+    alias impala='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
+    export impala_cmd='impala-shell -k -i impala-prd1.rtp1.hadoop.fmr.com --ssl'
+    export DATA="/apps/staging/restricted/aadsnonpii/$USER"
+    export PYSPARK_PYTHON="/opt/anaconda/latest/bin/python2.7"
+    export PATH="/opt/anaconda/latest/bin/:$PATH:/home/$USER/local/bin/"
+    export SPARK_HOME="/opt/cloudera/parcels/CDH-5.9.1-1.cdh5.9.1.p2260.2452/lib/spark"
+    export PYTHONPATH="$SPARK_HOME/python:$PYTHONPATH"
+    export PYTHONPATH="$SPARK_HOME/python/lib/py4j-0.9-src.zip:$PYTHONPATH"
+    export PYTHONPATH="$PYTHONPATH:/home/$USER/local/lib/python2.7/site-packages/"
 fi
 alias submitjob='spark-submit --master yarn-rm --num-executors=100 --conf "spark.kryoserializer.buffer.max = 128M" --executor-memory 8g --executor-cores 5 --driver-memory 8g'
 
@@ -49,7 +55,5 @@ function grl {
   export f=$(greadlink -f $1);
   echo $f;
 }
-
-export PYSPARK_PYTHON="/opt/anaconda/latest/bin/python"
 
 set -o emacs
