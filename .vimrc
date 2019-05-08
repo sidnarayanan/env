@@ -1,26 +1,42 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-fugitive'
+    Plug 'valloric/youcompleteme'
+call plug#end()
+    
+
 if has("syntax")
     syntax on
-  endif
+endif
 
-  set nu
-  set expandtab
-  set tabstop=4
-  set softtabstop=4
-  set shiftwidth=4
-  set hlsearch
+set nu
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set hlsearch
 
-  command Q q
-  command W w
-  command WQ wq
+set foldmethod=indent
 
-  "autocmd BufReadPost * :DetectIndent 
-  let g:detectindent_preferred_expandtab = 4 
-  let g:detectindent_preferred_indent = 4 
+command Q q
+command W w
+command WQ wq
 
-  filetype indent plugin on
+"autocmd BufReadPost * :DetectIndent 
+let g:detectindent_preferred_expandtab = 4 
+let g:detectindent_preferred_indent = 4 
 
-  nnoremap <F2> :set invpaste paste?<CR>
-  set pastetoggle=<F2>
-  set showmode
-  vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
-  hi Search cterm=None ctermfg=black ctermbg=yellow
+filetype indent plugin on
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+hi Search cterm=None ctermfg=black ctermbg=yellow
+hi Visual ctermfg=black
