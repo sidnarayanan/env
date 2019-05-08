@@ -8,6 +8,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
     Plug 'valloric/youcompleteme'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
     
 
@@ -40,3 +42,6 @@ set showmode
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 hi Search cterm=None ctermfg=black ctermbg=yellow
 hi Visual ctermfg=black
+
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
