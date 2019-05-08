@@ -45,4 +45,4 @@ hi Visual ctermfg=black
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_them='deus'
+let g:airline_them='base16_adwaita'
