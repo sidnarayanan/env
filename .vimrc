@@ -72,7 +72,11 @@ let g:jedi#show_call_signatures = "1"
 let g:pymode_rope = 0
 "let g:jedi#completions_command = "<Tab>"
 
-"let g:deoplete#sources#jedi#python_path = "python3" 
+let g:deoplete#sources#jedi#python_path = "/usr/bin/python3" 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#options#auto_complete_delay = 5
+
+let g:airline#extensions#whitespace#checks = [ 'indent', 'mixed-indent-file', 'conflicts' ]
+
